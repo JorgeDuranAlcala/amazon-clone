@@ -38,6 +38,8 @@ function Product({title, price, image, rating}) {
             </button>
         </div>
     )
+
+
 }
 
 export default Product
