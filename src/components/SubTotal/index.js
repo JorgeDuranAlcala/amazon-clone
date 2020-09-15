@@ -1,16 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import CurrencyFormat from 'react-currency-format'
 import { useStateValue } from "../../context/stateContext";
+import { useHistory } from 'react-router-dom'
+import { geTotal } from "../../utils/geTotal";
+
 import "./styles.css"
 
 function SubTotal() {
 
-     const [{ bascket }, dispatch] = useStateValue()
-
-     //const totalBasketValue = bascket.reduce((a,b) => a.price + b.price , 0)
-
-        let totalBasketValue = bascket.length > 1 ? bascket.map((item) => item.price).reduce((a,b) => a + b) : bascket[0]?.price
-
+    const [{ bascket }, dispatch] = useStateValue()
+    const history = useHistory()
     
 
     return (
@@ -28,29 +27,15 @@ function SubTotal() {
                     </>
                 )}
                 decimalScale={2}
-                value={totalBasketValue}
+                value={geTotal(bascket)}
                 displayType={"text"}
                 thousandSeparator={true}
                 prefix={"$"}
             />
-            <button type="button"> Procced to Checkout </button>
+            <button type="button" onClick={() => history.push('/payment')} > Procced to Checkout </button>
         </div>
     )
 }
 
-/* 
-        <currencyFormat
-            render={(value) = (
-                <>
-
-                </>
-            )}
-            decimalScale={2}
-            value={0}
-            displayType={"text"}
-            thousandSeparator={true}
-            prefix={"$"}
-        />
-    */
 
 export default SubTotal

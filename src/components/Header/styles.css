@@ -23,13 +23,13 @@
     flex: 1;
     display: flex;
     align-items: center;
-    border-radius: 24px;
 }
 
 .header__search__icon {
     background-color: #F3A847;
     height: 22px !important;
     padding: 5px;
+    border-radius: 0 3px 3px 0;
 }
 
 .header__input {
@@ -37,6 +37,7 @@
     height: 12px;
     padding: 10px;
     border: none;
+    border-radius: 3px 0 0 3px;
 }
 
 .header__nav {
@@ -59,6 +60,7 @@
 .optionLineTwo {
     font-size: 13px;
     font-weight: 800;
+    cursor: pointer;
 }
 
 .header__optionBasket {
@@ -70,6 +72,7 @@
 
 .header__link {
     color: #fff !important;
+    text-decoration: none;
 }
 
 .header__link > .MuiSvgIcon-root {

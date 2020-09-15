@@ -5,10 +5,17 @@ import AmazonImage from "../../assets/img/amazon-logo-white.png";
 import "./styles.css"
 import { Link } from 'react-router-dom';
 import { useStateValue } from '../../context/stateContext';
+import { actionTypes } from '../../reducer';
 
 function Header() {
 
-    const [{bascket}, dispatch] = useStateValue()
+    const [{bascket, user}, dispatch] = useStateValue()
+
+    const logOut = () => {
+        dispatch({
+            type: actionTypes.LOG_OUT
+        })
+    }
 
 
     return <div className="header">
@@ -23,27 +30,35 @@ function Header() {
                 </div>
 
                 <div className="header__search">
-                    <input className="header__input" placeholder="...search" />
+                    <input className="header__input" type="text" />
                     <SearchIcon className="header__search__icon" />
                 </div>
                 
                 <div className="header__nav">
                     <div className="header__option">
                         <span className="optionLineOne">
-                            Hello
+                            Hello { user ? user.email : "guest" }
                         </span>
-                        <span className="optionLineTwo">
-                            Sign In
-                        </span>
+                           { user ? <span onClick={logOut} className="optionLineTwo">
+                                Log out
+                            </span> :
+                            <Link className="header__link" to="/login">
+                                <span className="optionLineTwo">
+                                    Sign In
+                                </span>
+                              </Link>
+                            }
                     </div>
 
                     <div className="header__option">
                         <span className="optionLineOne">
                             Returns
                         </span>
-                        <span className="optionLineTwo">
-                            & orders
-                        </span>
+                        <Link className="header__link" to="/orders">
+                            <span className="optionLineTwo">
+                                & orders
+                            </span>
+                        </Link>
                     </div>
 
                     <div className="header__optionBasket">

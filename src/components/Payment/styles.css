@@ -1,0 +1,49 @@
+.payment {
+    background-color: #fff;
+}
+.payment__container > h1 {
+    display: flex;
+    background: #ddd;
+    align-items: center;
+    padding: 20px;
+    justify-content: center;
+}
+
+.payment__container > h1 > .link {
+    color: #000;
+    margin-left: 4px;
+    font-weight: 800;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.payment__section {
+    display: flex;
+    padding: 20px;
+    border: 1px solid lightgray;
+}
+
+.payment__title {
+    flex: 0.2;
+}
+
+.payment__products, .payment__details, .payment__adress {
+    flex: 0.8;
+}
+
+.payment__adress {
+    font-weight: 600;
+}
+
+.payment__btn {
+    background-color: #F3A847;
+    border: none;
+    height: 40px;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 5px 80px;
+    margin-top: 20px;
+    cursor: pointer;
+}

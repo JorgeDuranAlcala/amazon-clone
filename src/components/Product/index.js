@@ -3,7 +3,7 @@ import { useStateValue } from "../../context/stateContext";
 import './Product.css'
 import { actionTypes } from '../../reducer';
 
-function Product({title, price, image, rating}) {
+function Product({id, title, price, image, rating}) {
 
     const [state, dispatch] = useStateValue()
 
@@ -11,6 +11,7 @@ function Product({title, price, image, rating}) {
         dispatch({
             type: actionTypes.ADD_ITEM,
             item: {
+                id,
                 title,
                 price,
                 image,
@@ -22,7 +23,7 @@ function Product({title, price, image, rating}) {
     return (
         <div className="product">
             <div className="product__info">
-                <p>{title&&title}</p>
+                <p className="product__title">{title&&title}</p>
                 <p className="product__price">
                     <small>$</small>
                     <strong>{price&&price}</strong>
@@ -30,7 +31,6 @@ function Product({title, price, image, rating}) {
                 <div className="product__rating">
                     { Array(rating).fill().map((_, i) => <p key={i} role="img">⭐</p>) }
                 </div> 
-
             </div>
             <img src={image} alt="product image" />
             <button type="button" onClick={addToBasket} >
