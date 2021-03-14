@@ -6,10 +6,13 @@ import "./styles.css"
 import { Link } from 'react-router-dom';
 import { useStateValue } from '../../context/stateContext';
 import { actionTypes } from '../../reducer';
+import { Menu as MenuIcon } from '@material-ui/icons'
+import { useMediaQuery } from '@material-ui/core'
 
 function Header() {
 
     const [{bascket, user}, dispatch] = useStateValue()
+    const match = useMediaQuery(theme => theme.breakpoints.up('sm'));
 
     const logOut = () => {
         dispatch({
@@ -29,10 +32,13 @@ function Header() {
                     </Link>
                 </div>
 
-                <div className="header__search">
-                    <input className="header__input" type="text" />
-                    <SearchIcon className="header__search__icon" />
-                </div>
+                { match && (
+                    <div className="header__search">
+                        <input className="header__input" type="text" />
+                        <SearchIcon className="header__search__icon" />
+                    </div>
+                  )
+                }
                 
                 <div className="header__nav">
                     <div className="header__option">

@@ -5,4 +5,7 @@
 
 .App {
   background-color: #EAEDED;
+  width: 100%;
+  min-width: 350px;
+  min-height: 100vh;
 }
