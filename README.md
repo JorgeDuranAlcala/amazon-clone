@@ -1,4 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a Amazon clone built with react and Nodejs-expressjs
+
+## Preview
+
+[preview](https://clone-3f8c7.web.app/)
 
 ## Available Scripts
 
